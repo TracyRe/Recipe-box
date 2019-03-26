@@ -1,7 +1,8 @@
 
-<span class="food" *ngFor="let list of recipe">{{list.name}}</span>
-<!-- <h3>{{recipe.name}}</h3>
+<div *ngFor="let list of recipe">
+  <h3>{{list.name}}</h3>
 <ul>
-  <li *ngFor="let ingredient of recipe.ingredients">{{ingredient}}</li>
+  <li *ngFor="let ingredient of list.ingredients">{{ingredient}}</li>
 </ul>
-<p>{{recipe.instructions}}</p> -->
+<p>{{list.instructions}}</p>
+</div>
