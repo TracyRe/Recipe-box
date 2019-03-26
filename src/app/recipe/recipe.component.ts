@@ -9,24 +9,30 @@ import { RECIPES } from '../mock-recipes';
 })
 export class RecipeComponent implements OnInit {
 
-  // recipe: Recipe = {
-  //   name: 'Chocolate Milk',
-  //   ingredients: ['8oz milk', '2tbsp chocolate sauce'],
-  //   instructions: 'Stir chocolate sauce into cold milk until thoroughly mixed. Drink and enjoy.'
-  // };
-
   recipe = RECIPES;
-  // console.log(recipe);
 
+  // selectedRecipe: Recipe = this.recipe[0];
+  finishedEditing() {
+  this.selectedRecipe = null;
+}
+  selectedRecipe = null;
 
+  editRecipe(clickedRecipe) {
+    this.selectedRecipe = clickedRecipe;
+  }
 
-  // firstRecipe: Recipe = new Recipe('Chocolate Milk', ['8oz milk', '2tbsp chocolate sauce'], 'Stir chocolate sauce into cold milk until thoroughly mixed. Drink and enjoy.');
+  ratingColor(list){
+    if (list.rating === "3") {
+      return "best";
+    } else if (list.rating === "2") {
+      return "good";
+    } else {
+      return "okay";
+    }
+  }
 
-  // constructor(public name: string, public ingredients: [string], public instructions: string) { }
+  constructor() { }
 
   ngOnInit() {
-// recipe: Recipe[] = [];
-//   recipe.push(new Recipe('Chocolate Milk', ['8oz milk', '2tbsp chocolate sauce'], 'Stir chocolate sauce into cold milk until thoroughly mixed. Drink and enjoy.'));
-
   }
 }
