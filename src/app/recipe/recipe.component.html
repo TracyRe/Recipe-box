@@ -1,11 +1,15 @@
 
 <div *ngFor="let list of recipe">
-  <h3 [class]="ratingColor(list)">{{list.name}} <button (click)="editRecipe(list)">Edit</button></h3>
-<ul>
-  <li *ngFor="let ingredient of list.ingredients">{{ingredient}}</li>
-</ul>
-<p>{{list.instructions}}</p>
-<p>Recipe rating: {{list.rating}}</p>
+  <h3 [class]="ratingColor(list)" (click)="showDetails(list)">{{list.name}} <button (click)="editRecipe(list)">Edit</button></h3>
+  <div *ngIf="selectedDetails">
+    <ul>
+      <li *ngFor="let ingredient of list.ingredients">{{ingredient}}</li>
+    </ul>
+    <p>{{list.instructions}}</p>
+    <p>Recipe rating: {{list.rating}}</p>
+    <button (click)="closeDetails()" type="button" name="button">Close</button>
+
+  </div>
 </div>
 
 <div *ngIf="selectedRecipe">
